@@ -12,13 +12,13 @@ git clone https://github.com/DhruvP2205/Secure-Guard.git
 cd Secure-Guard
 
 # Run your first scan (auto-installs dependencies)
-python secureguard.py /path/to/your/project
+python SecureGuard.py /path/to/your/project
 
 # Scan remote repository
-python secureguard.py https://github.com/user/repo.git
+python SecureGuard.py https://github.com/user/repo.git
 
 # Generate JSON report for CI/CD
-python secureguard.py . --json security-report.json
+python SecureGuard.py /path/to/your/project --json security-report.json
 ```
 
 ## 🎯 Problem Statement
@@ -93,26 +93,14 @@ SecureGuard bridges the gap between security requirements and developer producti
 ```bash
 # Developers start their day with clean security status
 git pull origin main
-python secureguard.py . --recent  # Check new changes only
+python SecureGuard.py /path/to/your/project --recent  # Check new changes only
 # ✅ No issues found - ready to code!
 ```
 
-#### **Pre-Commit Security**
-- Automatic scanning before every commit
-- Prevents accidental secret uploads
-- Maintains clean repository history
+#### **Security & Code Review**
 - No additional mental overhead for developers
-
-#### **Code Review Automation**
-- Pull request security validation
-- Automated comments on potential issues
 - Reduced manual security review time
-- Consistent security standards enforcement
-
-#### **Deployment Confidence**
-- Pre-production security verification
 - Zero false positives mean reliable results
-- Compliance documentation automatically generated
 - Peace of mind for production releases
 
 ### 🎯 **Developer Productivity Impact**
@@ -121,7 +109,6 @@ python secureguard.py . --recent  # Check new changes only
 - **30 seconds** vs **5 minutes** for manual credential review
 - **Zero setup time** vs **hours** configuring other tools
 - **0.8% false positives** vs **42% with existing tools**
-- **Automated reporting** vs **manual compliance documentation**
 
 **Mental Load Reduction:**
 - No need to remember security scanning
@@ -141,21 +128,13 @@ python secureguard.py . --recent  # Check new changes only
 
 **Security Team Advantages:**
 - Centralized secret detection across all repositories
-- Consistent security standards enforcement
 - Automated compliance reporting and documentation
 - Reduced manual security review workload
 
 **DevOps Team Benefits:**
 - CI/CD pipeline security gates
-- Automated deployment security validation
 - Infrastructure-as-code secret detection
 - Container and Kubernetes manifest scanning
-
-**Management Visibility:**
-- Security posture dashboards and metrics
-- Risk quantification and trending
-- Audit trail documentation
-- ROI measurement through breach prevention
 
 ## ⚙️ Usage & Options Overview
 
@@ -165,24 +144,24 @@ SecureGuard is designed with simplicity in mind - powerful functionality through
 
 **Quick Start:**
 ```bash
-python secureguard.py .                    # Scan current directory
-python secureguard.py /path/to/project     # Scan specific path
-python secureguard.py https://github.com/user/repo.git  # Scan remote repo
+python SecureGuard.py .                    # Scan current directory
+python SecureGuard.py /path/to/project     # Scan specific path
+python SecureGuard.py https://github.com/user/repo.git  # Scan remote repo
 ```
 
 **Common Workflows:**
 ```bash
 # Daily developer workflow
-python secureguard.py . --recent           # Check recent changes only
+python SecureGuard.py /path/to/project --recent           # Check recent changes only
 
 # CI/CD integration  
-python secureguard.py . --json report.json # Generate automation-friendly report
+python SecureGuard.py /path/to/project --json report.json # Generate automation-friendly report
 
 # Security audit
-python secureguard.py . --workers 8        # Maximum performance scan
+python SecureGuard.py /path/to/project --workers 8        # Maximum performance scan
 
 # Code review preparation
-python secureguard.py . --no-cleanup       # Keep files for investigation
+python SecureGuard.py /path/to/project --no-cleanup       # Keep files for investigation
 ```
 
 ### 📊 Core Options Summary
@@ -201,22 +180,22 @@ python secureguard.py . --no-cleanup       # Keep files for investigation
 # New team member joining project
 git clone https://github.com/company/project.git
 cd project
-python secureguard.py .
+python SecureGuard.py /path/to/project
 # ✅ Security baseline established in 30 seconds
 ```
 
 **Release Management:**
 ```bash
 # Pre-release security check
-python secureguard.py . --json security-audit.json
+python SecureGuard.py /path/to/project --json security-audit.json
 # 📊 Compliance documentation ready for stakeholders  
 ```
 
 **Security Audit:**
 ```bash
 # Comprehensive organizational scan
-python secureguard.py https://github.com/company/microservice-a.git
-python secureguard.py https://github.com/company/microservice-b.git  
+python SecureGuard.py https://github.com/company/microservice-a.git
+python SecureGuard.py https://github.com/company/microservice-b.git  
 # 🔍 Multi-repository security assessment
 ```
 
@@ -226,13 +205,13 @@ python secureguard.py https://github.com/company/microservice-b.git
 🔍 Starting scan of: ./my-project
 📁 Scanning 1,247 files... ████████████ 100%
 
-┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Severity ┃ File                    ┃ Line   ┃ Rule           ┃ Match Preview            ┃
-┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ CRITICAL │ config/database.py      │ 12     │ AWS Access Key │ AKIAI44QH8DHBEXAMPLE     │
-│ HIGH     │ src/auth.js            │ 45     │ GitHub Token   │ ghp_1234567890abcdef...  │
-│ MEDIUM   │ .env.example           │ 8      │ DB Credentials │ postgres://user:pass...  │
-└──────────┴─────────────────────────┴────────┴────────────────┴──────────────────────────┘
+|----------|------------------|----------|----------|----------|
+| Severity | File                    | Line   | Rule           | Match Preview            |
+|----------|------------------|----------|----------|----------|
+| CRITICAL | config/database.py      │ 12     │ AWS Access Key │ AKIAI44QH8DHBEXAMPLE     │
+| HIGH     | src/auth.js            │ 45     │ GitHub Token   │ ghp_1234567890abcdef...  │
+| MEDIUM   | .env.example           │ 8      │ DB Credentials │ postgres://user:pass...  │
+|----------|------------------|----------|----------|----------|
 
 Critical: 1 | High: 1 | Medium: 1 | Low: 0
 Files Scanned: 1,247/1,247 | Total Issues: 3
@@ -301,7 +280,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run SecureGuard
         run: |
-          python secureguard.py . --json scan-results.json
+          python SecureGuard.py /path/to/project --json scan-results.json
           # Fail if critical secrets found
           python -c "
           import json
@@ -317,10 +296,10 @@ jobs:
 ```bash
 #!/bin/sh
 # .git/hooks/pre-commit
-python secureguard.py .
+python SecureGuard.py .
 if [ $? -ne 0 ]; then
     echo "❌ Commit blocked: secrets detected!"
-    echo "💡 Run 'python secureguard.py .' to see details"
+    echo "💡 Run 'python SecureGuard.py /path/to/project' to see details"
     exit 1
 fi
 ```
@@ -334,7 +313,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 script {
-                    sh 'python secureguard.py . --json security.json'
+                    sh 'python SecureGuard.py /path/to/project --json security.json'
                     def results = readJSON file: 'security.json'
                     if (results.scan_summary.stats.critical > 0) {
                         error "Critical secrets detected!"
@@ -376,7 +355,7 @@ pipeline {
 **Issue**: `ModuleNotFoundError: No module named 'click'`
 ```bash
 # Solution: Auto-installer will handle this
-python secureguard.py .
+python SecureGuard.py .
 # Installing click...
 # Installing gitpython...
 ```
@@ -384,13 +363,13 @@ python secureguard.py .
 **Issue**: `Permission denied` on Windows
 ```bash
 # Solution: Run as Administrator or use --no-cleanup
-python secureguard.py https://github.com/user/repo.git --no-cleanup
+python SecureGuard.py https://github.com/user/repo.git --no-cleanup
 ```
 
 **Issue**: High memory usage on large repositories
 ```bash
 # Solution: Reduce worker threads
-python secureguard.py . --workers 2
+python SecureGuard.py /path/to/project --workers 2
 ```
 
 ## 🏆 Competition Analysis
@@ -419,17 +398,9 @@ python secureguard.py . --workers 2
 ### Development Setup
 
 ```bash
-git clone https://github.com/yourusername/secureguard.git
+git clone https://github.com/DhruvP2205/Secure-Guard.git
 cd secureguard
 
-# Run tests
-python -m pytest tests/
-
-# Check line count constraint
-wc -l secureguard.py  # Must be exactly 250 lines
-
-# Format code
-black secureguard.py --line-length 250 --target-version py37
 ```
 
 ### Adding New Patterns
@@ -454,6 +425,14 @@ def test_new_service_detection():
 - **Click**: For CLI interface
 - **Security Community**: For pattern research and testing
 
-**Built with ❤️ for the security community | Hackathon 2024 Entry**
-
 *"Securing codebases, one commit at a time"*
+
+
+## ✨ Credits
+
+Made with ❤️ 
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/DhruvP2205)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dhruv-prajapati-245268209/)
