@@ -8,8 +8,8 @@ SecureGuard is an enterprise-grade secret scanner that detects hardcoded credent
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/secureguard.git
-cd secureguard
+git clone https://github.com/DhruvP2205/Secure-Guard.git
+cd Secure-Guard
 
 # Run your first scan (auto-installs dependencies)
 python secureguard.py /path/to/your/project
