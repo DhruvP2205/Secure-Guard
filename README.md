@@ -4,6 +4,9 @@
 
 SecureGuard is an enterprise-grade secret scanner that detects hardcoded credentials, API keys, and sensitive data in codebases. Built with a 250-line constraint, it demonstrates how modern Python can deliver production-ready security tools with maximum efficiency.
 
+## 🎬 Demo
+https://youtu.be/bBj63fh8H_I
+
 ## 🚀 Quick Start
 
 ```bash
