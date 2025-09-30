@@ -209,13 +209,13 @@ python SecureGuard.py https://github.com/company/microservice-b.git
 🔍 Starting scan of: ./my-project
 📁 Scanning 1,247 files... ████████████ 100%
 
-|----------|------------------|----------|----------|----------|
-| Severity | File                    | Line   | Rule           | Match Preview            |
-|----------|------------------|----------|----------|----------|
-| CRITICAL | config/database.py      │ 12     │ AWS Access Key │ AKIAI44QH8DHBEXAMPLE     │
-| HIGH     | src/auth.js            │ 45     │ GitHub Token   │ ghp_1234567890abcdef...  │
-| MEDIUM   | .env.example           │ 8      │ DB Credentials │ postgres://user:pass...  │
-|----------|------------------|----------|----------|----------|
+|----------|---------------------|--------|----------------|--------------------------|
+| Severity | File                | Line   | Rule           | Match Preview            |
+|----------|---------------------|--------|----------------|--------------------------|
+| CRITICAL | config/database.py  │ 12     │ AWS Access Key │ AKIAI44QH8DHBEXAMPLE     │
+| HIGH     | src/auth.js         │ 45     │ GitHub Token   │ ghp_1234567890abcdef...  │
+| MEDIUM   | .env.example        │ 8      │ DB Credentials │ postgres://user:pass...  │
+|----------|---------------------|--------|----------------|--------------------------|
 
 Critical: 1 | High: 1 | Medium: 1 | Low: 0
 Files Scanned: 1,247/1,247 | Total Issues: 3
