@@ -7,6 +7,7 @@ SecureGuard is an enterprise-grade secret scanner that detects hardcoded credent
 ## 🎬 Demo
 https://youtu.be/bBj63fh8H_I
 
+
 ## 🚀 Quick Start
 
 ```bash
